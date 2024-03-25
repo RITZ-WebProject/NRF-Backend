@@ -1,0 +1,274 @@
+* {
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.darken {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.66) 0%, rgba(217, 217, 217, 0) 100%);
+  transition: all 5s ease-in-out;
+}
+
+.inverted #img-logo {
+  width: 92px;
+  height: 34px;
+}
+.inverted .navbar-collapse .navbar-nav .nav-item .nav-link {
+  color: white;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+}
+.navbar #img-logo {
+  position: absolute;
+  width: 576px;
+  height: 215px;
+  left: calc(50% - 288px - 365px);
+  top: 294px;
+  /* animation magic */
+  transition: all 1.1s ease-in-out;
+}
+.navbar .shrink {
+  width: 92px !important;
+  height: 34px !important;
+  left: 170px !important;
+  top: 54px !important;
+  position: fixed;
+  overflow: none;
+}
+.navbar .navbar-nav {
+  display: flex;
+  padding: 0;
+  margin-top: 56px;
+  margin-right: 100px;
+  width: 678px;
+  height: 40px;
+  font: normal normal 600 2rem/24px "Inter", sans-serif;
+  text-transform: uppercase;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  color: black;
+}
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #0001E5;
+}
+.navbar .navbar-nav .nav-item:nth-child(6) #cart {
+  position: absolute;
+  bottom: 0px;
+}
+
+.banner-1 {
+  /* s1 */
+  height: 1024px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%), #FFFFFF;
+}
+.banner-1 .intro .intro-text {
+  /* NRF was registered on 12th January 2022 and we started our business on 22nd. We introduced our brand at Another Club pop-up stores and there, people started knowing us. Our second pop-up store was in Level 2. As a start-up brand, we carefully emphasize the quality to give our customers the best. */
+  position: absolute;
+  width: 859px;
+  height: 291px;
+  left: calc(50% - 429.5px - 161.5px);
+  top: 439px;
+  font: normal normal 600 2rem/24px "Inter", sans-serif;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  color: #000000;
+}
+
+.mission {
+  position: absolute;
+  height: 1024px;
+  left: 0px;
+  right: 0px;
+  top: 1024px;
+  background: #1E1E1E;
+}
+.mission img:nth-child(2) {
+  position: absolute;
+  width: 72.7rem;
+  height: 81.9rem;
+  left: calc(50% - 363.5px + 464.5px);
+  top: -203px;
+}
+.mission img:nth-child(3) {
+  position: absolute;
+  width: 72.7rem;
+  height: 81.6rem;
+  left: calc(50% - 363.5px - 544.5px);
+  top: 503px;
+  z-index: 2;
+}
+.mission .mission-elements .mission-intro .mission-header {
+  font: normal normal 900 4rem/48px "Inter", sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  width: 208px;
+  height: 71px;
+  left: calc(50% - 104px - 496px);
+  top: 156px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+}
+.mission .mission-elements .mission-intro .mission-text {
+  font: normal normal 500 3.2rem/38.73px "Inter", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 250px - 350px);
+  top: 227px;
+  text-align: justify;
+  width: 500px;
+  height: 156px;
+  color: #FFFFFF;
+}
+.mission .mission-elements .vision-intro .vision-header {
+  font: normal normal 900 4rem/48px "Inter", sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  width: 208px;
+  height: 71px;
+  left: calc(50% - 104px + 497px);
+  top: 651px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: #FFFFFF;
+}
+.mission .mission-elements .vision-intro .vision-text {
+  font: normal normal 500 3.2rem/38.73px "Inter", sans-serif;
+  position: absolute;
+  width: 500px;
+  height: 234px;
+  left: calc(50% - 250px + 286px);
+  top: 722px;
+  text-align: justify;
+  color: #FFFFFF;
+}
+
+.footer {
+  position: absolute;
+  height: 693px;
+  left: 0px;
+  right: 0px;
+  top: 2048px;
+  bottom: 0px;
+  background: #0001E5;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .follow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  position: absolute;
+  width: 49.5%;
+  height: 314px;
+  top: 98px;
+  left: calc(50% - 306.5px + 313.5px);
+  bottom: 191px;
+}
+.footer .follow .button .strike {
+  /* Vector 45 */
+  position: absolute;
+  top: 365px;
+  left: 0%;
+  right: 25.33%;
+  border: 3px solid #0001E6;
+  width: 112.933px;
+}
+.footer .follow .button .sub-button {
+  font: normal normal 500 2rem/23.7px "Rubik", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+.footer .follow .title {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 35px;
+}
+.footer .follow .title .line {
+  right: 0;
+  position: absolute;
+  width: 244px;
+  height: 0px;
+  left: 430px;
+  top: 19.5px;
+}
+.footer .follow .title .icons {
+  display: flex;
+  gap: 10px;
+}
+.footer .follow .footer-header {
+  font: normal normal 500 3.2rem/38.73px "Inter", sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.footer .follow .footer-text {
+  font: normal normal 300 2rem/24px "Inter", sans-serif;
+  color: #FFFFFF;
+  width: 613px;
+}
+.footer .follow h4:nth-child(n+4) {
+  color: rgba(255, 255, 255, 0.4);
+}
+.footer .follow .line {
+  /* Line 1 */
+  width: 590px;
+  height: 0px;
+  border: 2px solid #FFFFFF;
+}
+.footer .follow .btn {
+  width: 167px;
+  height: 60px;
+  background: #1E1E1E;
+  border-radius: 0px;
+  /* SUBSCRIBE */
+  font: normal normal 500 2rem/24px "Inter", sans-serif;
+  display: flex;
+  padding: 14px 27px 13px 28px;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+.footer .hyperlinks {
+  position: absolute;
+  width: 479px;
+  height: 104px;
+  left: 120px;
+  top: 358px;
+  display: flex;
+  gap: 22px;
+}
+.footer .hyperlinks .section {
+  display: flex;
+  width: 145px;
+  height: 104px;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer .hyperlinks .section h5 {
+  font: normal normal 600 2rem/24px "Inter", sans-serif;
+  color: white;
+}
+.footer .hyperlinks .section ul {
+  list-style: none;
+  font: normal normal 300 1.6rem/24.2px "Inter", sans-serif;
+  color: white;
+  padding: 0;
+}
+.footer .hyperlinks .section ul a {
+  text-decoration: none;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
