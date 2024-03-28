@@ -51,6 +51,7 @@ Route::middleware(['logout'])->group(function() {
     Route::get('/customers',[CustomersController::class,'index']);
     Route::post('/customers/store', [CustomersController::class, 'store'])->name('customers.store');
     Route::get('/customers/view/{id}', [CustomersController::class, 'view']);
+    Route::get('/customers/edit/{id}', [CustomersController::class, 'edit']);
 	Route::put('/customers/{id}', [CustomersController::class, 'update'])->name('customers.update');
     Route::delete('/customers/delete/{id}', [CustomersController::class, 'destroy']);
 

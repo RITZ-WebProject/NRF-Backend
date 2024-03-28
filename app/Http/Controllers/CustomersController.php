@@ -11,46 +11,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Cache;
 
 class CustomersController extends Controller
 {
     public static function generateCustomerID()
     {
         $customers = DB::table('customers')->get()->last();
-        // dd($customers);
         $prefix = "NRF-C-";
-        // if($customers) {
-        //     $customer_uniquekey = ++$customers->customer_uniquekey;
-        //     return $customer_uniquekey;
-        // } else {
-        //     $customer_uniquekey = $prefix . "000001";
-        //     return $customer_uniquekey;
-        // }
     }
-    public function index(){
-
-        $customers = Customer::select('id', 'customer_name', 'email','phone_primary')->get();
-
-        // $customers = Customer::get();
-        // dd($customers);
-
-        // $order_count = DB::table('delivery_info')
-        //             // ->leftJoin('customers', 'customers.customer_uniquekey', '=', 'delivery_info.customer_id')
-        //             ->select('customer_id', DB::raw('COUNT(customer_id) as cid'))
-        //             ->groupBy('customer_id')
-        //             ->get();
-        // dd($order_count);
-
-
-
-        // $customers = DB::table('customers')
-        //         ->leftJoin('delivery_info', 'delivery_info.customer_id', '=', 'customers.customer_uniquekey')
-        //         ->select('customers.customer_uniquekey', DB::raw('COUNT(delivery_info.order_id) as order_count'))
-        //         ->groupBy('customers.customer_uniquekey')
-        //         ->distinct()
-        //         ->get();
-
+    public function index()
+    {
+	    $customers = collect();
+        Customer::select('id', 'customer_name', 'phone_primary', 'email')
+            ->orderBy('id')
+            ->chunk(150, function ($results) use (&$customers) {
+                $customers->push($results);
+            });
+        $customers = $customers->flatten();
         return view('customers.index',compact('customers'));
     }
 
@@ -74,11 +51,6 @@ class CustomersController extends Controller
             $customer->customer_name = $request->customer_name;
             $customer->customer_uniquekey = $this->generateCustomerID();
             $customer->phone_primary = $request->phone_primary;
-            // $customer->phone_secondary = $request->phone_secondary;
-            // $customer->division_id = $request->division_id;
-            // $customer->district_id = $request->district_id;
-            // $customer->township_id = $request->township_id;
-            // $customer->address = $request->address;
             $customer->save();
 
             return redirect('customers/')->with("info", 'New Customers is Added');
@@ -89,11 +61,9 @@ class CustomersController extends Controller
 
     public function view($id)
     {
-        // dd($id);
         $customer_orders = DB::table('delivery_info')
                     ->where('delivery_info.customer_id', $id)
                     ->get();
-                    // dd($customer_orders);
         return view('customers.view', compact('customer_orders'));
     }
 

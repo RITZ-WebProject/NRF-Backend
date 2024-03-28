@@ -9,10 +9,8 @@
     <div class="card-body">
         <div class="row">
             <h4 class="card-title d-inline mt-2 text-uppercase mb-4">Customers Information
-                {{-- <a href="{{ url('customers/create') }}"><button class="btn btn-primary btn-sm mb-2 float-end"> <i class="fas fa-plus"></i> Add</button></a> --}}
             </h4>
         </div>
-      {{-- <h4 class="card-title">Customers Information</h4> --}}
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
@@ -25,8 +23,6 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Action</th>
-                    {{-- <th>Order ID</th> --}}
-                    {{-- <th>Address</th> --}}
                 </tr>
               </thead>
               <tbody>
@@ -42,7 +38,7 @@
                         <a href="customers/view/{{$customer->id}}">
                             <button class="btn btn-outline-primary pt-1 pb-1"><i class="ti-eye"></i></button>
                         </a>
-                		<a href="#">
+                	<a href="customers/edit/{{$customer->id}}">
                             <button class="btn btn-outline-warning pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#editCustomerModal{{$customer->id}}"> <i class="ti-pencil-alt"></i> </button>
                         </a>
                         <form action="{{ url('customers/delete',['id'=>$customer->id]) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure want to delete?')">
@@ -52,9 +48,6 @@
                         </form>
                     </td>
                 </tr>
-                
-               
-                
                 @endforeach
               </tbody>
             </table>
