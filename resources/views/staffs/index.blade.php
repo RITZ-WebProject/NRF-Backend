@@ -10,7 +10,6 @@
     <div class="card-body">
         <div class="row">
             <h4 class="card-title d-inline mt-2">STAFF LIST
-                {{-- <a href="{{ url('staffs/create') }}"><button class="btn btn-primary btn-sm mb-2 float-end"> <i class="fas fa-plus"></i> Add</button></a> --}}
                 <button type="button" class="btn btn-primary btn-sm mb-2 float-end" data-bs-toggle="modal" data-bs-target="#create-staff-modal"> <i class="fas fa-plus"></i> ADD</button>
             </h4>
         </div>
@@ -41,12 +40,6 @@
 
                         </td>
                         <td class="text-center">
-                          {{-- <a href="staffs/{{$staff->id}}/edit">
-                            <button class="btn btn-outline-warning"> <i class="ti-pencil-alt"></i> </button>
-                          </a> --}}
-                          {{-- <a href="staffs/delete/{{$staff->id}}">
-                            <button class="btn btn-outline-danger"> <i class="ti-trash"></i> </button>
-                            </a> --}}
                           <a href="#">
                             <button class="btn btn-outline-warning pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#editStaffModal{{$staff->id}}"> <i class="ti-pencil-alt"></i> </button>
                           </a>

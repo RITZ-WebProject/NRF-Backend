@@ -29,5 +29,4 @@ class CountrySeeder extends Seeder
         ['name' => 'East Timor'],
     ]);
 }
-
 }
