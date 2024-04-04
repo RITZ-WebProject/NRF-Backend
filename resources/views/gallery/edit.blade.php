@@ -17,7 +17,7 @@
                 <div class="row mt-5">
                     <div class="col-4 col-md-3 position-relative">
                         <div style="position: relative">
-                            <img id="previewImage" src="{{ asset('storage/app/public/galleries/'.$gallery->photo_url) }}" class="img-fluid img-thumbnail" alt="" style="height: 300px; object-fit: contain;">
+                            <img id="previewImage" value="{{ $gallery->name }}" src="{{ $gallery->name }}" class="img-fluid img-thumbnail" alt="" style="height: 300px; object-fit: contain;">
                             <label style="position: absolute;bottom:10px;right:10px;color:black;" for="photo_change"><span style="background-color: rgb(88, 88, 230);padding:8px 9px 5px 8px;border-radius:20%;"><i class="ti-reload"></i></span></label>
                         </div>
                     </div>

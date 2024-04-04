@@ -34,7 +34,7 @@
                     <th class="text-center">XLarge <br> Quantity</th>
                     <th class="text-center">2XLarge <br> Quantity</th>
                     <th class="text-center">3XLarge <br> Quantity</th>
-					<th>Update Status</th>
+					        <th>Update Status</th>
                     {{-- <th>Current Discount</th> --}}
                     <th class="text-center">Action</th>
                 </tr>
@@ -45,23 +45,22 @@
                     <tr>
                         <td>{{ $i++ }}</td>
                         <td>
-                            {{-- <a href="{{route('add_to_cart', $product->id)}}" class="text-decoration-none badge badge-secondary rounded-circle"><i class="ti-plus text-light"></i>
-                            </a> --}}
                             {{ $product->id }}
                         </td>
                         <td>
-                          @php
-                            $photoArray = explode("'x'", $product->photo);
-
-                          @endphp
-                            <img src="{{ asset('storage/app/public/product_photos/'.$photoArray[0]) }}" style="object-fit: cover" alt="" class="rounded">
-                            {{ $product->product_name }}
+                        @if ($product->photo && is_array(json_decode($product->photo)))
+                        @php
+                          $urls = json_decode($product->photo, true);
+                        @endphp
+                          @foreach ($urls as $url)
+                              <img src="{{ $url }}" alt="Product Image" style="object-fit: cover;width:100px;height:100px;">
+                          @endforeach
+                      @endif
                         </td>
                         <td>{{ $product->cat_name }}</td>
                         <td>{{ $product->description }}</td>
                         <td>{{ number_format($product->price) }}</td>
                         <td>{{ number_format($product->dollor) }}</td>
-                        {{-- <td>{{ $product->color }}</td> --}}
 						            <td>{{$product->size_type}}</td>
                         <td>{{ $product->small_quantity }}</td>
                         <td>{{ $product->medium_quantity }}</td>
@@ -69,7 +68,7 @@
                         <td>{{ $product->xlarge_quantity }}</td>
                         <td>{{ $product->xxlarge_quantity }}</td>
                         <td>{{ $product->xxxlarge_quantity }}</td>
-						<td>
+						            <td>
                             <form id="product-update-status" action="{{ route('pupdate_status') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">

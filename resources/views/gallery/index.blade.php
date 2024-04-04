@@ -12,7 +12,7 @@
                 <a href="{{ url('galleries/create') }}"><button class="btn btn-primary btn-sm mb-2 float-end"> <i class="fas fa-plus"></i> Add</button></a>
             </h4>
         </div>
-      {{-- <h4 class="card-title">Customers Information</h4> --}}
+      
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
@@ -32,7 +32,8 @@
                     <td>{{$i++}}</td>
                     <td>{{$gallery->name}}</td>
                     <td>
-                        <img src="{{ asset('storage/app/public/galleries/'.$gallery->photo_url) }}" style="object-fit: cover;width:100px;height:100px;"  alt="" class="rounded">
+                      <img src="{{ $gallery->photo_url }}" alt="{{ $gallery->name }}" style="object-fit: cover;width:100px;height:100px;"  alt="" class="rounded">
+                        {{-- <img src="{{ asset('storage/app/public/galleries/'.$gallery->photo_url) }}" style="object-fit: cover;width:100px;height:100px;"  alt="" class="rounded"> --}}
                     </td>
                     <td>
                         <a href="galleries/view/{{$gallery->id}}">
