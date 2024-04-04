@@ -1,51 +1,6 @@
 {{--  @dd($order_details);  --}}
 @extends('layouts.app')
 @section('content')
-
-{{-- <div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Order ID</th>
-                <th>Customer Name</th>
-                <th>Product Name</th>
-                <th>Color</th>
-                <th>Size Chart</th>
-                <th>Original Price</th>
-                <th>Discount (%)</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-                <th>Order Date</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @php $i = 1; @endphp
-            @foreach ($order_details as $detail)
-                <tr>
-                    <td>{{ $i++ }}</td>
-                    <td>{{ $detail->order_id }}</td>
-                    <td>{{ $detail->customer_name }}</td>
-                    <td>{{ $detail->product_name }}</td>
-                    <td>{{ $detail->color }}</td>
-                    <td>{{ $detail->size_chart }}</td>
-                    <td>{{ $detail->original_price }}</td>
-                    <td>{{ $detail->on_discount }} % </td>
-                    <td>{{ $detail->quantity }}</td>
-                    <td>{{ $detail->total_price }}</td>
-                    <td>{{ $detail->order_date }}</td>
-                    <td>{{ $detail->status }}</td>
-                    <td>
-                        <a href="/each_item_delete/{{$detail->id}}"><i class="ti-close"></i></a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div> --}}
-
     @if (session("info"))
         <div class="alert alert-secondary">
             {{session("info")}}
@@ -58,7 +13,6 @@
             <h4 class="mb-0 text-white">Order ID : {{ $detail->id }}</h4>
         </div>
         <div class="col-md-4">
-            {{--<a href="{{ URL::previous() }}?page=5" class="float-end btn btn-secondary text-light btn-sm mb-3"> <i class="ti-back-right"></i> Back</a>--}}
             <a href="{{url('/orders')}}" class="float-end btn btn-secondary text-light btn-sm mb-3"> <i class="ti-back-right"></i> Back</a>
         </div>
     </div>
@@ -76,25 +30,21 @@
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total Price
-                                    {{-- <button class="btn btn-outline-light btn-sm" id="edit"><i class="ti-pencil-alt"></i> Edit</button> --}}
                                 </th>
-                                {{-- <th>Action</th> --}}
-                                {{-- <th>
-                                    <button class="btn btn-light btn-sm" id="edit">Edit</button>
-                                </th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @php $i = 1; @endphp
                             
                             @foreach ($detail->product as $product)
-								@php $photoArray = explode("'x'", $product->photo); @endphp
+                            @php $photoArray = json_decode($product->photo, true); @endphp
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <img src="{{ asset('storage/app/public/product_photos/'.$photoArray[0]) }}" width="100px" alt="" class="rounded">
+                                                <img src="{{ $photoArray[0] ?? ''}}" width="100px" height="100px" alt="" class="rounded">
+                                                {{-- <img src="{{ asset('storage/app/public/product_photos/'.$photoArray[0]) }}" width="100px" alt="" class="rounded"> --}}
                                             </div>
                                             <div class="col-sm-9">
                                                 {{ $product->id }} <br><br>
