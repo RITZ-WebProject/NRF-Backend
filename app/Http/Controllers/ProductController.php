@@ -175,10 +175,12 @@ public function update(Request $request, $id)
         'description' => ['required', 'string', 'max:255'],
         'price' => ['required', 'string', 'max:255'],
         'dollor' => ['required', 'string', 'max:255'],
-        ]);
-        if ($request->hasFile('photo')) {
+    ]);
+
+    $urls = []; // Define $urls here to ensure it's always available
+
+    if ($request->hasFile('photo')) {
         $photos = $request->file('photo');
-        $urls = [];
         foreach ($photos as $photo) {
             $path = $photo->store('products', 's3');
             $urls[] = Storage::disk('s3')->url($path);
@@ -187,29 +189,30 @@ public function update(Request $request, $id)
     }
 
     if ($validator) {
-    $product->product_name = $request->product_name;
-    $product->category_id = $request->category_id;
-    $product->description = $request->description;
-    $product->price = $request->price;
-    $product->dollor = $request->dollor;
-    if($product->size_type != "normal") {
-        $product->small_quantity = $request->one_quantity;
-    } else {
-        $product->small_quantity = $request->small_quantity;
-        $product->medium_quantity = $request->medium_quantity;
-        $product->large_quantity = $request->large_quantity;
-        $product->xlarge_quantity = $request->xlarge_quantity;
-        $product->xxlarge_quantity = $request->xxlarge_quantity;
-        $product->xxxlarge_quantity = $request->xxxlarge_quantity;
-    }
-    $product->photo = json_encode($urls);
-    $product->visable_time=$request->visable_time;
-    $product->save();
-            return redirect('products/')->with("info", 'Existing Proudct is Updated');
-        }else{
-            return redirect()->back()->withErrors($validator);
+        $product->product_name = $request->product_name;
+        $product->category_id = $request->category_id;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->dollor = $request->dollor;
+        if ($product->size_type != "normal") {
+            $product->small_quantity = $request->one_quantity;
+        } else {
+            $product->small_quantity = $request->small_quantity;
+            $product->medium_quantity = $request->medium_quantity;
+            $product->large_quantity = $request->large_quantity;
+            $product->xlarge_quantity = $request->xlarge_quantity;
+            $product->xxlarge_quantity = $request->xxlarge_quantity;
+            $product->xxxlarge_quantity = $request->xxxlarge_quantity;
         }
+        $product->visable_time = $request->visable_time;
+        $product->save();
+
+        return redirect('products/')->with("info", 'Existing Product is Updated');
+    } else {
+        return redirect()->back()->withErrors($validator);
+    }
 }
+
 
         public function destroy($id)
         {
