@@ -27,8 +27,6 @@ class JobController extends Controller
             'requirements' => 'required',
             'email' => 'required'
         ]);
-
-        // Create new job
         Career::create($validatedData);
 
         return redirect()->route('careers.index')->with('success', 'Job created successfully!');
