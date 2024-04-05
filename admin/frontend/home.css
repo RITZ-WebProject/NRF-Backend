@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container-fluid {
+  height: 1024px;
+  background-color: #0001E5;
+}
+.container-fluid .navbar-nav .nav-item .nav-link {
+  color: white;
+}/*# sourceMappingURL=home.css.map */
