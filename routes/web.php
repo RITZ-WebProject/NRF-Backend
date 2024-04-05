@@ -40,8 +40,11 @@ Route::middleware(['logout'])->group(function() {
 	Route::get('/product_reports', [DashboardController::class, 'product_reports']);
     Route::get('/product_reports/product_daterange', [DashboardController::class, 'product_daterange'])->name('product_daterange');
 
+<<<<<<< HEAD
     Route::post('/send-confirmation-email', [OrderController::class, 'send_confirmation_email'])->name('send_confirmation_email');
     Route::post('/send-cancel-email', [OrderController::class, 'send_cancel_email'])->name('send-cancel-email');
+=======
+>>>>>>> origin/master
 
     //staff
     Route::get('/staffs', [StaffController::class, 'index']);
